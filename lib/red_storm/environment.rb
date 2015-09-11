@@ -5,10 +5,10 @@ module RedStorm
   CWD = Dir.pwd
 
   launch_path = File.expand_path(File.dirname(__FILE__))
-  jar_context = !!(launch_path =~ /\.jar!\/red_storm$/)
+  jar_context = !!(launch_path =~ /stormjar\.jar!\/red_storm$/)
 
   if jar_context
-    BASE_PATH = File.expand_path(launch_path + '/..')
+    BASE_PATH = 'uri:classloader:/'
     REDSTORM_HOME = BASE_PATH
     GEM_PATH = "#{REDSTORM_HOME}/gems/"
     # Make sure that when we're loading our environment up that we properly set
@@ -44,15 +44,6 @@ module RedStorm
   SRC_EXAMPLES = "#{REDSTORM_HOME}/examples"
   DST_EXAMPLES = "#{CWD}/examples"
 
-  SRC_IVY_DIR = "#{REDSTORM_HOME}/ivy"
-  DST_IVY_DIR = "#{CWD}/ivy"
-  DEFAULT_IVY_SETTINGS = "#{SRC_IVY_DIR}/settings.xml"
-  CUSTOM_IVY_SETTINGS = "#{DST_IVY_DIR}/settings.xml"
-  DEFAULT_IVY_STORM_DEPENDENCIES = "#{SRC_IVY_DIR}/storm_dependencies.xml"
-  CUSTOM_IVY_STORM_DEPENDENCIES = "#{DST_IVY_DIR}/storm_dependencies.xml"
-  DEFAULT_IVY_TOPOLOGY_DEPENDENCIES = "#{SRC_IVY_DIR}/topology_dependencies.xml"
-  CUSTOM_IVY_TOPOLOGY_DEPENDENCIES = "#{DST_IVY_DIR}/topology_dependencies.xml"
-
   DEFAULT_STORM_CONF_FILE = File.expand_path("~/.storm/storm.yaml") rescue ''
 
   def current_ruby_mode
@@ -72,3 +63,6 @@ module RedStorm
 
   module_function :current_ruby_mode, :jruby_mode_token, :java_runtime_version
 end
+
+# Requiring this at the tail-end to make sure whatever modifications we needed to make to our environment works properly
+require 'jars/setup'

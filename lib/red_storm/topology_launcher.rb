@@ -54,6 +54,7 @@ class TopologyLauncher
     $:.unshift File.expand_path(launch_path + '/target/lib')
 
     begin
+      require 'jars/setup'
       require "#{class_path}"
     rescue => ex
       puts "Failed to load #{class_path}! (#{ex.inspect})"

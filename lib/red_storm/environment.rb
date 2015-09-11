@@ -11,6 +11,12 @@ module RedStorm
     BASE_PATH = File.expand_path(launch_path + '/..')
     REDSTORM_HOME = BASE_PATH
     GEM_PATH = "#{REDSTORM_HOME}/gems/"
+    # Make sure that when we're loading our environment up that we properly set
+    # up the embedded JRuby environment:
+    # <https://github.com/jruby-gradle/redstorm/issues/12>
+    Dir.chdir('uri:classloader:/')
+    ENV['JARS_HOME'] = 'uri:classloader:/jars'
+    $LOAD_PATH.unshift('uri:classloader://')
   else
     BASE_PATH = CWD
     REDSTORM_HOME = File.expand_path(launch_path + '/../..')

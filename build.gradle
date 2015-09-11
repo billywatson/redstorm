@@ -19,7 +19,7 @@ apply plugin: 'java'
 apply plugin: 'com.github.jruby-gradle.jar'
 apply plugin: 'com.jfrog.bintray'
 
-version = '0.9.0'
+version = '0.9.1'
 group = 'com.github.jruby-gradle'
 description = "RedStorm integrates Ruby code via JRuby into the Storm distributed computation system"
 defaultTasks 'check', 'assemble'

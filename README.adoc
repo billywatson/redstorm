@@ -1,0 +1,40 @@
+= RedStorm - JRuby on Storm
+
+image:https://travis-ci.org/jruby-gradle/redstorm.svg?branch=master["Build
+Status", link="https://travis-ci.org/jruby-gradle/redstorm"]
+
+image::https://api.bintray.com/packages/jruby-gradle/libraries/redstorm/images/download.svg[link="https://bintray.com/jruby-gradle/libraries/redstorm/_latestVersion"]
+
+RedStorm provides a Ruby DSL using JRuby integration for the
+link:http://storm.apache.org[Apache Storm] distributed realtime computation
+system.
+
+Like RedStorm? visit us on IRC at `#redstorm` on
+link:http://freenode.net[Freenode]
+
+==  Documentation
+
+Chances are new versions of RedStorm will introduce changes that will break
+compatibility or change the developement workflow. To prevent out-of-sync
+documentation, per version specific documentation are kept
+link:https://github.com/jruby-gradle/redstorm/wiki[in the wiki] when necessary.
+
+== Authors
+
+* **Colin Surprenant**, http://github.com/colinsurprenant/,
+  link:https://twitter.com/colinsurprenant/[@colinsurprenant], colin.surprenant@gmail.com, http://colinsurprenant.com/
+* **R Tyler Croy**, http://github.com/rtyler/,
+  link:https://twitter.com/agentdero/[@agentdero]
+
+== Contributors
+
+* Theo Hultberg, https://github.com/iconara
+* Paul Bergeron, https://github.com/dinedal
+* Phil Pirozhkov, https://github.com/pirj
+* Evan Broderm, https://github.com/ebroder
+* Shay Elkin, https://github.com/shayel
+* adsummos, https://github.com/adsummos
+
+== License
+
+Apache License, Version 2.0. See the LICENSE.md file.

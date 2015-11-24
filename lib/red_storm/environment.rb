@@ -24,12 +24,18 @@ module RedStorm
 
   def current_ruby_mode
     RUBY_VERSION =~ /(\d+\.\d+)(\.\d+)*/
-    raise("unknown Ruby version #{$1}") unless $1 == "1.8" || $1 == "1.9"
+    # raise("unknown Ruby version #{$1}") unless $1 == "1.8" || $1 == "1.9"
     $1
   end
 
   def jruby_mode_token(ruby_version = nil)
-    version_map = {"1.8" => "RUBY1_8", "--1.8" => "RUBY1_8", "1.9" => "RUBY1_9", "--1.9" => "RUBY1_9"}
+    version_map = {
+      "1.8" => "RUBY1_8", "--1.8" => "RUBY1_8",
+      "1.9" => "RUBY1_9", "--1.9" => "RUBY1_9",
+      "2.0" => "2.0", "--2.0" => "2.0",
+      "2.1" => "2.0", "--2.1" => "2.0",
+      "2.2" => "2.0", "--2.2" => "2.0"
+    }
     version_map[ruby_version.to_s] || version_map[RedStorm.current_ruby_mode]
   end
 
